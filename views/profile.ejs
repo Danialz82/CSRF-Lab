@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f7fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .profile-container {
+      background-color: #fff;
+      padding: 40px 50px;
+      border-radius: 12px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    h2 {
+      color: #333;
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input {
+      margin-bottom: 15px;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      background-color: #f9f9f9;
+      transition: background-color 0.3s, border 0.3s;
+    }
+
+    input:focus {
+      border-color: #007bff;
+      background-color: #fff;
+      outline: none;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      transform: translateY(-3px);
+    }
+
+    button:active {
+      background-color: #004085;
+      transform: translateY(0);
+    }
+
+    .section-title {
+      font-weight: bold;
+      margin-bottom: 12px;
+      color: #333;
+      font-size: 18px;
+    }
+
+    .save-button {
+      background-color: #28a745;
+    }
+
+    .save-button:hover {
+      background-color: #218838;
+    }
+
+    .logout-button {
+      background-color: #dc3545;
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    .logout-button:hover {
+      background-color: #c82333;
+    }
+
+    hr {
+      border: 1px solid #ddd;
+      margin: 25px 0;
+    }
+
+    .footer {
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 14px;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      .profile-container {
+        padding: 25px;
+        width: 90%;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="profile-container">
+    <h2>Profile</h2>
+
+    <!-- Profile Information Update Form -->
+    <div>
+      <div class="section-title">Update Profile Information</div>
+      <form id="profile-update-form" action="/update-profile" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <input type="email" name="email" placeholder="Email" value="<%= email %>" required>
+        <input type="text" name="username" placeholder="Username" value="<%= username %>" required>
+        <button type="submit" class="save-button">Save Profile</button>
+      </form>
+    </div>
+
+    <hr>
+
+    <!-- Change Password Form -->
+    <div>
+      <div class="section-title">Change Password</div>
+      <form id="password-change-form" action="/change-password" method="POST">
+        <input type="password" name="currentPassword" placeholder="Current Password" required>
+        <input type="password" name="newPassword" placeholder="New Password" required>
+        <input type="password" name="confirmPassword" placeholder="Confirm New Password" required>
+        <button type="submit" class="save-button">Change Password</button>
+      </form>
+    </div>
+
+    <!-- Logout Button -->
+    <div class="logout-button">
+      <form action="/logout" method="POST">
+        <button type="submit">Logout</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

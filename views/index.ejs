@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #6f7aff, #a4aaff);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 25px;
+    }
+
+    .button {
+      padding: 15px 30px;
+      background-color: #28a745;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 18px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .button:hover {
+      background-color: #218838;
+      transform: translateY(-3px);
+    }
+
+    .button:active {
+      background-color: #1e7e34;
+      transform: translateY(0);
+    }
+
+    .button.alt {
+      background-color: #ffc107;
+    }
+
+    .button.alt:hover {
+      background-color: #e0a800;
+    }
+
+    .button.alt:active {
+      background-color: #c69500;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 30px;
+      }
+
+      .button {
+        font-size: 16px;
+        padding: 12px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Our Website</h1>
+  <div class="button-container">
+    <a href="/signup" class="button">Sign Up</a>
+    <a href="/login" class="button alt">Login</a>
+  </div>
+</body>
+</html>
