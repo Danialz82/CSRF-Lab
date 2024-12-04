@@ -29,7 +29,7 @@ Before you start, ensure you have:
 
 ---
 
-## ⚙️ Setup Instructions
+## ⚙️ Setup
 
 1. Clone the repository:
    ```bash
