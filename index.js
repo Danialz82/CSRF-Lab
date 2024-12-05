@@ -132,7 +132,7 @@ app.post('/change-password', isAuthenticated, async(req, res) => {
     const { newPassword, confirmPassword } = req.body
     const referrer = req.get('Referer');
 
-    const referrerRegex = /^http:\/\/localhost:\d+\/profile\/?$/;
+    const referrerRegex = /^.*\/profile\/?$/;
 
     if (!referrer || !referrerRegex.test(referrer)) {
         return res.status(403).send('Access denied: Invalid referrer.');
